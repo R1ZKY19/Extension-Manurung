@@ -1,259 +1,1015 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Auto Chek Manurung — Panduan &amp; Download</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Chek Manurung | Panduan & Download</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#f6f2ea;
-    --ink:#17140f;
-    --panel:#0e0d0b;
-    --panel-2:#161310;
-    --gold:#d6a13a;
-    --gold-soft:#f0cf7c;
-    --gold-dim:#8a6a25;
-    --line:rgba(255,255,255,0.08);
-    --line-dark:rgba(23,20,15,0.12);
-    --green:#3f8f5f;
-    --yellow:#d6a13a;
-    --red:#b4483d;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif;
-    line-height:1.55;
-  }
-  .sans{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* ---------- header / hero ---------- */
-  header.hero{
-    position:relative;
-    background:
-      radial-gradient(900px 420px at 12% 0%, rgba(214,161,58,0.22), transparent 62%),
-      linear-gradient(180deg,var(--panel-2),var(--panel));
-    color:var(--paper);
-    padding:0 24px;
-    border-bottom:1px solid var(--gold-dim);
-    overflow:hidden;
-  }
-  header.hero::after{
-    content:"";
-    position:absolute; inset:auto 0 0 0; height:4px;
-    background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);
-  }
-  .hero-inner{ max-width:920px; margin:0 auto; padding:72px 0 60px; }
-  .logo-wrap{ margin-bottom:38px; }
-  .logo-wrap img{ display:block; width:min(560px,80vw); height:auto; }
-  .hero p.lede{
-    font-size:19px; max-width:54ch; color:#cfc7b6; margin:0 0 34px;
-  }
-  .dl-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
-  .btn-download{
-    font-family:inherit;
-    display:inline-flex; align-items:center; gap:10px;
-    background:linear-gradient(180deg,var(--gold-soft),var(--gold));
-    color:#1a1610;
-    font-weight:700;
-    font-size:17px;
-    padding:15px 26px;
-    border-radius:8px;
-    text-decoration:none;
-    box-shadow:0 12px 26px rgba(214,161,58,0.22);
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .btn-download:hover{ transform:translateY(-1px); box-shadow:0 16px 32px rgba(214,161,58,0.3); }
-  .dl-meta{ font-size:14px; color:#8f886f; }
+:root {
+  --bg-primary: #0b0d11;
+  --bg-secondary: #12151c;
+  --bg-card: #1a1e28;
+  --bg-card-hover: #222833;
+  --bg-light: #f6f4ef;
+  --text-primary: #f0f2f5;
+  --text-secondary: #b0b8c4;
+  --text-muted: #7a8392;
+  --gold: #f0c94f;
+  --gold-light: #ffe28c;
+  --gold-glow: rgba(240, 201, 79, 0.15);
+  --green: #4ade80;
+  --green-glow: rgba(74, 222, 128, 0.2);
+  --red: #f87171;
+  --yellow: #fbbf24;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  /* ---------- content ---------- */
-  main{ max-width:920px; margin:0 auto; padding:60px 24px 100px; }
+html {
+  scroll-behavior: smooth;
+}
 
-  .section-label{
-    font-family:inherit; font-size:14px; letter-spacing:0.02em;
-    color:var(--gold-dim); margin:0 0 6px;
-  }
-  h2{
-    font-size:29px; margin:0 0 28px; font-weight:600;
-  }
-  .part + .part{ margin-top:68px; padding-top:2px; }
-  .part + .part::before{
-    content:""; display:block; height:1px; margin-bottom:66px;
-    background:linear-gradient(90deg,var(--gold-dim),transparent 55%);
-  }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  ol.steps{
-    list-style:none; margin:0; padding:0;
-    counter-reset:step;
-    border-top:1px solid var(--line-dark);
-  }
-  ol.steps li{
-    counter-increment:step;
-    display:grid;
-    grid-template-columns:44px 1fr;
-    gap:20px;
-    padding:22px 0;
-    border-bottom:1px solid var(--line-dark);
-  }
-  ol.steps li::before{
-    content:counter(step);
-    font-family:inherit;
-    font-size:19px;
-    color:var(--gold-dim);
-    border:1px solid var(--gold-dim);
-    width:36px;height:36px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    flex:none;
-  }
-  ol.steps li .step-body p{ margin:0 0 8px; font-size:17px; }
-  ol.steps li .step-body p:last-child{ margin-bottom:0; }
-  ol.steps li a.attach{
-    display:inline-block; margin-top:6px;
-    font-family:inherit; font-size:15px;
-    color:var(--ink); text-decoration:underline;
-    text-decoration-color:var(--gold);
-    text-underline-offset:3px;
-  }
-  code.path{
-    font-family:'SF Mono',ui-monospace,Menlo,monospace;
-    background:rgba(23,20,15,0.06);
-    padding:2px 6px; border-radius:4px; font-size:0.9em;
-  }
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
 
-  /* result legend */
-  .legend{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
-    margin-top:26px;
-  }
-  .legend .chip{
-    border-radius:10px; padding:18px;
-    border:1px solid var(--line-dark);
-    background:#fff;
-  }
-  .legend .dot{ width:14px;height:14px;border-radius:50%; display:inline-block; margin-right:8px; }
-  .legend .chip.k .dot{ background:var(--yellow); }
-  .legend .chip.h .dot{ background:var(--green); }
-  .legend .chip.m .dot{ background:var(--red); }
-  .legend .chip strong{ display:block; margin-bottom:4px; font-size:17px; }
-  .legend .chip span.note{ font-size:14px; color:#555; font-family:inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  .redo-note{
-    margin-top:26px; padding:18px 20px; border-radius:10px;
-    background:rgba(180,72,61,0.06); border:1px solid rgba(180,72,61,0.22);
-    font-size:15px;
-  }
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-  /* file structure box */
-  .files{
-    margin-top:22px; border:1px solid var(--line-dark); border-radius:12px; overflow:hidden;
-  }
-  .files .row{
-    display:flex; justify-content:space-between; gap:20px;
-    padding:13px 18px; font-size:15px;
-    border-bottom:1px solid var(--line-dark);
-  }
-  .files .row:last-child{ border-bottom:none; }
-  .files .row .f{ font-family:'SF Mono',ui-monospace,Menlo,monospace; font-size:14px; }
-  .files .row .d{ color:#5c5648; text-align:right; max-width:56%; }
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 20% 30%, rgba(240, 201, 79, 0.08), transparent 60%),
+              radial-gradient(ellipse at 80% 70%, rgba(240, 201, 79, 0.04), transparent 50%),
+              var(--bg-primary);
+  border-bottom: 1px solid rgba(240, 201, 79, 0.10);
+}
 
-  footer{
-    border-top:1px solid var(--line-dark);
-  }
-  footer .foot-inner{
-    max-width:920px; margin:0 auto; padding:28px 24px;
-    color:#8a8474; font-size:14px;
-    display:flex; align-items:center; gap:10px;
-  }
-  footer img{ height:20px; width:auto; opacity:0.85; }
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(240, 201, 79, 0.05), transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
 
-  @media (max-width:560px){
-    .legend{ grid-template-columns:1fr; }
-    ol.steps li{ grid-template-columns:36px 1fr; }
-    .hero-inner{ padding:52px 0 46px; }
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 80px 0 60px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(240, 201, 79, 0.25);
+  background: rgba(240, 201, 79, 0.07);
+  padding: 8px 18px 8px 14px;
+  border-radius: 100px;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 16px var(--green-glow);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.hero-logo {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 40px rgba(240, 201, 79, 0.06));
+}
+
+.hero h1 {
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+}
+
+.hero h1 .highlight {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 15px;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #1a1508;
+  box-shadow: 0 8px 32px rgba(240, 201, 79, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 44px rgba(240, 201, 79, 0.35);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-3px);
+}
+
+.btn-ghost {
+  color: var(--text-secondary);
+  padding: 14px 20px;
+  font-weight: 600;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+}
+
+.hero-meta {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ===== Hero Visual (Mockup) ===== */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 28px 24px 24px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.mockup-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 70% 30%, rgba(240, 201, 79, 0.04), transparent 50%);
+  pointer-events: none;
+}
+
+.mockup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.mockup-dots {
+  display: flex;
+  gap: 6px;
+}
+.mockup-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+.mockup-dots span:first-child { background: #f87171; }
+.mockup-dots span:nth-child(2) { background: #fbbf24; }
+.mockup-dots span:last-child { background: #4ade80; }
+
+.mockup-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.mockup-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mockup-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mockup-row.header {
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+}
+
+.mockup-row .status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge .dot-sm {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dot-sm.green { background: var(--green); box-shadow: 0 0 12px var(--green-glow); }
+.dot-sm.yellow { background: var(--yellow); }
+.dot-sm.red { background: var(--red); }
+
+.mockup-progress {
+  margin-top: 8px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.mockup-progress-bar {
+  height: 100%;
+  width: 72%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 10px;
+  animation: progress-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes progress-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ===== Section General ===== */
+.section {
+  padding: 80px 0;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  color: var(--text-secondary);
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* ===== Features Grid ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 32px 28px 28px;
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(240, 201, 79, 0.15);
+  background: var(--bg-card-hover);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(240, 201, 79, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ===== Steps ===== */
+.steps-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.step-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 18px 24px 18px 20px;
+  transition: var(--transition);
+}
+
+.step-item:hover {
+  border-color: rgba(240, 201, 79, 0.12);
+  background: var(--bg-card-hover);
+  transform: translateX(6px);
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 16px;
+  background: rgba(240, 201, 79, 0.10);
+  color: var(--gold);
+  border: 1px solid rgba(240, 201, 79, 0.15);
+}
+
+.step-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.step-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.step-item code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'Inter', monospace;
+  color: var(--gold-light);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.step-link {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  padding-left: 12px;
+  transition: var(--transition);
+}
+
+.step-link:hover {
+  color: var(--gold-light);
+  transform: translateX(4px);
+}
+
+/* ===== Status Legend ===== */
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.status-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.status-dot.yellow { background: var(--yellow); }
+.status-dot.green { background: var(--green); box-shadow: 0 0 20px var(--green-glow); }
+.status-dot.red { background: var(--red); }
+
+.status-item h5 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.status-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== Notice ===== */
+.notice-box {
+  margin-top: 24px;
+  padding: 18px 24px;
+  background: rgba(240, 201, 79, 0.06);
+  border: 1px solid rgba(240, 201, 79, 0.12);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.notice-box strong {
+  color: var(--gold-light);
+}
+
+/* ===== File Grid ===== */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.file-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.file-item:hover {
+  border-color: rgba(240, 201, 79, 0.10);
+}
+
+.file-item strong {
+  font-family: 'Inter', monospace;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.file-item span {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+  background: radial-gradient(ellipse at 50% 100%, rgba(240, 201, 79, 0.06), transparent 60%);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 80px 0;
+}
+
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+.cta-inner h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  max-width: 700px;
+}
+
+.cta-inner p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 540px;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-inner img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+.footer-inner span {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0 40px;
   }
+  .hero-visual {
+    order: -1;
+  }
+  .mockup-card {
+    max-width: 100%;
+  }
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+  }
+  .hero-grid {
+    padding: 40px 0 32px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .legend-grid {
+    grid-template-columns: 1fr;
+  }
+  .file-grid {
+    grid-template-columns: 1fr;
+  }
+  .step-item {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .step-link {
+    display: none;
+  }
+  .mockup-row {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 11px;
+    padding: 8px 10px;
+    gap: 4px;
+  }
+  .mockup-row.header {
+    font-size: 10px;
+  }
+  .section {
+    padding: 48px 0;
+  }
+  .cta-section {
+    padding: 48px 0;
+  }
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .mockup-card {
+    padding: 18px 14px 18px;
+  }
+  .mockup-row {
+    font-size: 10px;
+    padding: 6px 8px;
+    gap: 2px;
+  }
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="logo-wrap">
-      <img src="logo.png" alt="Auto Chek Manurung" />
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Panduan Resmi
+      </div>
+      <img src="logo.png" alt="Auto Chek Manurung" class="hero-logo">
+      <h1>Check lebih cepat.<br><span class="highlight">Kerja lebih rapi.</span></h1>
+      <p>Ekstensi Chrome untuk mencocokkan data XLSX seperti User ID, Kode Tiket, Betting, dan Koin dengan data transaksi asli secara otomatis, per batch.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="Auto_Chek_Manurung.zip" download>↓ Download Extension</a>
+        <a class="btn btn-secondary" href="#instal">Lihat Cara Instal →</a>
+      </div>
+      <div class="hero-meta">Versi 3.0.6 · Format ZIP · Extract sebelum instalasi</div>
     </div>
-    <p class="lede">Ekstensi Chrome untuk mencocokkan data XLSX (User ID, Kode Tiket, Betting, Koin) dengan data transaksi asli — otomatis, per batch, tanpa buka halaman satu-satu.</p>
-    <div class="dl-row">
-      <a class="btn-download" href="Auto_Chek_Manurung.zip" download>⬇ Download Auto_Chek_Manurung.zip</a>
-      <span class="dl-meta sans">v3.0.6 · .zip · ekstrak dulu sebelum instal</span>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <div class="part">
-    <p class="section-label sans">A</p>
-    <h2>Instal Extension</h2>
-    <ol class="steps">
-      <li><div class="step-body"><p>Download filenya lewat tombol di atas, lalu extract <strong>Auto_Chek_Manurung.zip</strong>.</p></div></li>
-      <li><div class="step-body"><p>Buka Chrome, ketik di address bar: <code class="path">chrome://extensions</code></p></div></li>
-      <li><div class="step-body"><p>Nyalakan toggle <strong>Developer mode</strong> (pojok kanan atas).</p></div></li>
-      <li><div class="step-body"><p>Klik tombol <strong>Load unpacked</strong>.</p></div></li>
-      <li><div class="step-body"><p>Pilih folder <strong>"Auto Chek Manurung"</strong> (hasil extract tadi).</p></div></li>
-      <li><div class="step-body"><p>Icon mahkota akan muncul di toolbar Chrome — pin biar gampang diakses.</p></div></li>
-    </ol>
-  </div>
-
-  <div class="part">
-    <p class="section-label sans">B</p>
-    <h2>Cara Pakai Dashboard</h2>
-    <ol class="steps">
-      <li><div class="step-body">
-        <p>Buka &amp; login dulu ke halaman <em>bukan link agen</em> <strong>https://Agent.idrbo1.com/</strong>, tunggu sampai status di dashboard berubah jadi hijau "Admin terdeteksi". Catatan: harus membuka tampilan <code class="path">/transaction-record.html</code>.</p>
-        <a class="attach sans" href="https://sleekshot.app/v/aDu2RfGrXEIz" target="_blank" rel="noopener">Lihat lampiran →</a>
-      </div></li>
-      <li><div class="step-body">
-        <p>Klik icon mahkota di toolbar untuk buka dashboard.</p>
-        <a class="attach sans" href="https://sleekshot.app/v/ykmUCZZkN11R" target="_blank" rel="noopener">Lihat lampiran →</a>
-      </div></li>
-      <li><div class="step-body"><p>Klik <strong>Import XLSX</strong>, pilih file yang isinya kolom <strong>USER ID, KODE TIKET, BETTING, KOIN</strong>.</p></div></li>
-      <li><div class="step-body"><p>Isi <strong>Tanggal</strong> (default kemarin) dan jumlah <strong>Cek ... data</strong> per batch.</p></div></li>
-      <li><div class="step-body"><p>Klik <strong>▶ Mulai Cek</strong> — sistem otomatis mencocokkan data XLSX dengan data asli.</p></div></li>
-      <li><div class="step-body"><p>Baca hasil dari warna status di tabel:</p>
-        <div class="legend">
-          <div class="chip k"><strong><span class="dot"></span>Kuning</strong><span class="note">Masih diproses (Menunggu / Mengecek)</span></div>
-          <div class="chip h"><strong><span class="dot"></span>Hijau</strong><span class="note">Sesuai</span></div>
-          <div class="chip m"><strong><span class="dot"></span>Merah</strong><span class="note">Tidak sesuai / tidak ditemukan</span></div>
+    <div class="hero-visual">
+      <div class="mockup-card">
+        <div class="mockup-header">
+          <div class="mockup-dots"><span></span><span></span><span></span></div>
+          <span class="mockup-title">Auto Chek · Dashboard</span>
+          <span style="font-size:13px;color:var(--text-muted);">⚡</span>
         </div>
-      </div></li>
-    </ol>
-    <div class="redo-note">
-      Kalau ada baris yang merah, klik <strong>↻ Cek Ulang</strong> di kolom Aksi untuk memproses ulang baris itu saja — tidak perlu ulang dari awal.
+        <div class="mockup-body">
+          <div class="mockup-row header">
+            <span>User ID</span>
+            <span>Kode Tiket</span>
+            <span>Betting</span>
+            <span>Status</span>
+          </div>
+          <div class="mockup-row">
+            <span>ID-001</span>
+            <span>TK-9823</span>
+            <span>Rp 150.000</span>
+            <span class="status-badge"><span class="dot-sm green"></span> Cocok</span>
+          </div>
+          <div class="mockup-row">
+            <span>ID-002</span>
+            <span>TK-4512</span>
+            <span>Rp 75.000</span>
+            <span class="status-badge"><span class="dot-sm yellow"></span> Proses</span>
+          </div>
+          <div class="mockup-row">
+            <span>ID-003</span>
+            <span>TK-6741</span>
+            <span>Rp 200.000</span>
+            <span class="status-badge"><span class="dot-sm red"></span> Tidak Cocok</span>
+          </div>
+          <div class="mockup-progress">
+            <div class="mockup-progress-bar"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="part">
-    <p class="section-label sans">Isi Folder</p>
-    <h2>Apa saja yang ada di dalam zip</h2>
-    <p>Setelah di-extract, folder <strong>"Auto Chek Manurung"</strong> berisi beberapa file — ini normal untuk ekstensi Chrome, bukan cuma satu file dashboard:</p>
-    <div class="files sans">
-      <div class="row"><span class="f">manifest.json</span><span class="d">Deklarasi ekstensi &amp; izin akses</span></div>
-      <div class="row"><span class="f">background.js</span><span class="d">Logika utama proses pengecekan</span></div>
-      <div class="row"><span class="f">content.js</span><span class="d">Berjalan di halaman transaction-record</span></div>
-      <div class="row"><span class="f">dashboard.html / .css / .js</span><span class="d">Tampilan &amp; fungsi dashboard saat icon diklik</span></div>
-      <div class="row"><span class="f">xlsx-reader.js</span><span class="d">Membaca isi file XLSX yang diimpor</span></div>
-      <div class="row"><span class="f">config.js</span><span class="d">Konstanta penyimpanan data lokal</span></div>
-      <div class="row"><span class="f">icons/</span><span class="d">Icon mahkota untuk toolbar</span></div>
+<!-- ===== FEATURES ===== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">01 · Overview</span>
+      <h2 class="section-title">Satu dashboard untuk <br>proses pengecekan.</h2>
+      <p class="section-sub mx-auto">Import data XLSX, tentukan tanggal dan jumlah batch, lalu jalankan pengecekan. Hasil langsung tampil dalam tabel dengan status yang mudah dibaca.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Import XLSX</h3>
+        <p>Upload file dengan kolom User ID, Kode Tiket, Betting, dan Koin. Sistem membaca dan memproses data secara otomatis.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Batch Processing</h3>
+        <p>Proses pengecekan dibagi per batch agar tidak membebani browser. Anda bisa mengatur jumlah data per batch.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✅</div>
+        <h3>Status Real-time</h3>
+        <p>Setiap baris mendapat status: Proses (kuning), Cocok (hijau), atau Tidak Cocok (merah). Cek ulang hanya untuk yang merah.</p>
+      </div>
     </div>
   </div>
+</section>
 
-</main>
+<!-- ===== INSTALLATION ===== -->
+<section class="section" id="instal" style="background: var(--bg-secondary);">
+  <div class="container">
+    <span class="section-label">A · Instalasi</span>
+    <h2 class="section-title">Pasang Extension</h2>
+    <p class="section-sub">Gunakan Chrome dan aktifkan Developer mode untuk memuat folder extension hasil extract.</p>
 
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div>
+          <h4>Download &amp; Extract</h4>
+          <p>Download <strong>Auto_Chek_Manurung.zip</strong>, lalu extract ke sebuah folder.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div>
+          <h4>Buka halaman Extensions</h4>
+          <p>Di Chrome, buka <code>chrome://extensions</code>.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div>
+          <h4>Aktifkan Developer mode</h4>
+          <p>Nyalakan toggle <strong>Developer mode</strong> di pojok kanan atas.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <div>
+          <h4>Load unpacked</h4>
+          <p>Klik <strong>Load unpacked</strong>, lalu pilih folder <strong>Auto Chek Manurung</strong> hasil extract.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">05</div>
+        <div>
+          <h4>Pin extension</h4>
+          <p>Icon mahkota akan muncul di toolbar Chrome. Pin icon tersebut agar dashboard mudah dibuka.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== USAGE ===== -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">B · Penggunaan</span>
+    <h2 class="section-title">Cara Pakai Dashboard</h2>
+    <p class="section-sub">Setelah extension aktif, ikuti alur berikut untuk memulai pengecekan.</p>
+
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div>
+          <h4>Login &amp; buka halaman transaksi</h4>
+          <p>Buka dan login ke <strong>https://Agent.idrbo1.com/</strong>. Pastikan dashboard menampilkan <strong>“Admin terdeteksi”</strong> hijau. Tampilan yang digunakan harus <code>/transaction-record.html</code>.</p>
+        </div>
+        <a href="#" class="step-link">Lihat →</a>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div>
+          <h4>Buka dashboard</h4>
+          <p>Klik icon mahkota pada toolbar Chrome untuk membuka dashboard Auto Chek Manurung.</p>
+        </div>
+        <a href="#" class="step-link">Lihat →</a>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div>
+          <h4>Import XLSX</h4>
+          <p>Klik <strong>Import XLSX</strong> dan pilih file yang berisi kolom <strong>USER ID, KODE TIKET, BETTING, KOIN</strong>.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">04</div>
+        <div>
+          <h4>Tentukan tanggal &amp; batch</h4>
+          <p>Isi <strong>Tanggal</strong> yang ingin diperiksa, kemudian tentukan jumlah <strong>Cek ... data</strong> per batch. Default tanggal adalah kemarin.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">05</div>
+        <div>
+          <h4>Mulai pengecekan</h4>
+          <p>Klik <strong>▶ Mulai Cek</strong>. Sistem akan mencocokkan data XLSX dengan data asli secara otomatis.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Legend -->
+    <div style="margin-top:48px;">
+      <span class="section-label">Status Hasil</span>
+      <div class="legend-grid">
+        <div class="status-item">
+          <span class="status-dot yellow"></span>
+          <div>
+            <h5>Kuning</h5>
+            <p>Masih diproses: Menunggu / Mengecek.</p>
+          </div>
+        </div>
+        <div class="status-item">
+          <span class="status-dot green"></span>
+          <div>
+            <h5>Hijau</h5>
+            <p>Data sesuai dengan hasil pengecekan.</p>
+          </div>
+        </div>
+        <div class="status-item">
+          <span class="status-dot red"></span>
+          <div>
+            <h5>Merah</h5>
+            <p>Tidak sesuai atau data tidak ditemukan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="notice-box">
+        <span style="font-size:20px;">↻</span>
+        <div><strong>Cek Ulang:</strong> Jika ada baris berstatus merah, klik <strong>Cek Ulang</strong> pada kolom Aksi untuk memproses baris tersebut saja. Tidak perlu mengulang seluruh pengecekan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FILE STRUCTURE ===== -->
+<section class="section" style="background: var(--bg-secondary);">
+  <div class="container">
+    <span class="section-label">C · Struktur</span>
+    <h2 class="section-title">Isi Folder Extension</h2>
+    <p class="section-sub">Beberapa file diperlukan agar extension dapat berjalan. Jangan menghapus file secara sembarangan.</p>
+
+    <div class="file-grid">
+      <div class="file-item"><strong>manifest.json</strong><span>Deklarasi extension &amp; izin akses</span></div>
+      <div class="file-item"><strong>background.js</strong><span>Logika utama pengecekan</span></div>
+      <div class="file-item"><strong>content.js</strong><span>Berjalan di transaction-record</span></div>
+      <div class="file-item"><strong>dashboard.html / .css / .js</strong><span>Tampilan &amp; fungsi dashboard</span></div>
+      <div class="file-item"><strong>xlsx-reader.js</strong><span>Membaca file XLSX</span></div>
+      <div class="file-item"><strong>config.js</strong><span>Konstanta penyimpanan lokal</span></div>
+      <div class="file-item"><strong>icons/</strong><span>Icon mahkota toolbar</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <span class="section-label">Siap Pakai</span>
+    <h2>Download &amp; Install <br>sekarang juga.</h2>
+    <p>Dapatkan ekstensi Auto Chek Manurung dan rasakan kemudahan pengecekan data transaksi.</p>
+    <a class="btn btn-primary" href="Auto_Chek_Manurung.zip" download style="font-size:17px; padding:16px 40px;">
+      ↓ Download Extension
+    </a>
+    <div class="hero-meta">Versi 3.0.6 · ZIP · Extract sebelum instalasi</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="foot-inner sans">
-    <img src="logo.png" alt="" />
-    <span>panduan penggunaan internal</span>
+  <div class="container footer-inner">
+    <img src="logo.png" alt="Auto Chek Manurung">
+    <span>Panduan penggunaan internal · Auto Chek Manurung</span>
   </div>
 </footer>
 
