@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Auto Chek Manurung — Panduan &amp; Download</title>
+<style>
+  :root{
+    --paper:#f6f2ea;
+    --ink:#17140f;
+    --panel:#0e0d0b;
+    --panel-2:#161310;
+    --gold:#d6a13a;
+    --gold-soft:#f0cf7c;
+    --gold-dim:#8a6a25;
+    --line:rgba(255,255,255,0.08);
+    --line-dark:rgba(23,20,15,0.12);
+    --green:#3f8f5f;
+    --yellow:#d6a13a;
+    --red:#b4483d;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif;
+    line-height:1.55;
+  }
+  .sans{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+
+  /* ---------- header / hero ---------- */
+  header.hero{
+    position:relative;
+    background:
+      radial-gradient(900px 420px at 12% 0%, rgba(214,161,58,0.22), transparent 62%),
+      linear-gradient(180deg,var(--panel-2),var(--panel));
+    color:var(--paper);
+    padding:0 24px;
+    border-bottom:1px solid var(--gold-dim);
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute; inset:auto 0 0 0; height:4px;
+    background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);
+  }
+  .hero-inner{ max-width:920px; margin:0 auto; padding:72px 0 60px; }
+  .logo-wrap{ margin-bottom:38px; }
+  .logo-wrap img{ display:block; width:min(560px,80vw); height:auto; }
+  .hero p.lede{
+    font-size:19px; max-width:54ch; color:#cfc7b6; margin:0 0 34px;
+  }
+  .dl-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+  .btn-download{
+    font-family:inherit;
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(180deg,var(--gold-soft),var(--gold));
+    color:#1a1610;
+    font-weight:700;
+    font-size:17px;
+    padding:15px 26px;
+    border-radius:8px;
+    text-decoration:none;
+    box-shadow:0 12px 26px rgba(214,161,58,0.22);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-download:hover{ transform:translateY(-1px); box-shadow:0 16px 32px rgba(214,161,58,0.3); }
+  .dl-meta{ font-size:14px; color:#8f886f; }
+
+  /* ---------- content ---------- */
+  main{ max-width:920px; margin:0 auto; padding:60px 24px 100px; }
+
+  .section-label{
+    font-family:inherit; font-size:14px; letter-spacing:0.02em;
+    color:var(--gold-dim); margin:0 0 6px;
+  }
+  h2{
+    font-size:29px; margin:0 0 28px; font-weight:600;
+  }
+  .part + .part{ margin-top:68px; padding-top:2px; }
+  .part + .part::before{
+    content:""; display:block; height:1px; margin-bottom:66px;
+    background:linear-gradient(90deg,var(--gold-dim),transparent 55%);
+  }
+
+  ol.steps{
+    list-style:none; margin:0; padding:0;
+    counter-reset:step;
+    border-top:1px solid var(--line-dark);
+  }
+  ol.steps li{
+    counter-increment:step;
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  ol.steps li::before{
+    content:counter(step);
+    font-family:inherit;
+    font-size:19px;
+    color:var(--gold-dim);
+    border:1px solid var(--gold-dim);
+    width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+  }
+  ol.steps li .step-body p{ margin:0 0 8px; font-size:17px; }
+  ol.steps li .step-body p:last-child{ margin-bottom:0; }
+  ol.steps li a.attach{
+    display:inline-block; margin-top:6px;
+    font-family:inherit; font-size:15px;
+    color:var(--ink); text-decoration:underline;
+    text-decoration-color:var(--gold);
+    text-underline-offset:3px;
+  }
+  code.path{
+    font-family:'SF Mono',ui-monospace,Menlo,monospace;
+    background:rgba(23,20,15,0.06);
+    padding:2px 6px; border-radius:4px; font-size:0.9em;
+  }
+
+  /* result legend */
+  .legend{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+    margin-top:26px;
+  }
+  .legend .chip{
+    border-radius:10px; padding:18px;
+    border:1px solid var(--line-dark);
+    background:#fff;
+  }
+  .legend .dot{ width:14px;height:14px;border-radius:50%; display:inline-block; margin-right:8px; }
+  .legend .chip.k .dot{ background:var(--yellow); }
+  .legend .chip.h .dot{ background:var(--green); }
+  .legend .chip.m .dot{ background:var(--red); }
+  .legend .chip strong{ display:block; margin-bottom:4px; font-size:17px; }
+  .legend .chip span.note{ font-size:14px; color:#555; font-family:inherit; }
+
+  .redo-note{
+    margin-top:26px; padding:18px 20px; border-radius:10px;
+    background:rgba(180,72,61,0.06); border:1px solid rgba(180,72,61,0.22);
+    font-size:15px;
+  }
+
+  /* file structure box */
+  .files{
+    margin-top:22px; border:1px solid var(--line-dark); border-radius:12px; overflow:hidden;
+  }
+  .files .row{
+    display:flex; justify-content:space-between; gap:20px;
+    padding:13px 18px; font-size:15px;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .files .row:last-child{ border-bottom:none; }
+  .files .row .f{ font-family:'SF Mono',ui-monospace,Menlo,monospace; font-size:14px; }
+  .files .row .d{ color:#5c5648; text-align:right; max-width:56%; }
+
+  footer{
+    border-top:1px solid var(--line-dark);
+  }
+  footer .foot-inner{
+    max-width:920px; margin:0 auto; padding:28px 24px;
+    color:#8a8474; font-size:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  footer img{ height:20px; width:auto; opacity:0.85; }
+
+  @media (max-width:560px){
+    .legend{ grid-template-columns:1fr; }
+    ol.steps li{ grid-template-columns:36px 1fr; }
+    .hero-inner{ padding:52px 0 46px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Auto Chek Manurung" />
+    </div>
+    <p class="lede">Ekstensi Chrome untuk mencocokkan data XLSX (User ID, Kode Tiket, Betting, Koin) dengan data transaksi asli — otomatis, per batch, tanpa buka halaman satu-satu.</p>
+    <div class="dl-row">
+      <a class="btn-download" href="Auto_Chek_Manurung.zip" download>⬇ Download Auto_Chek_Manurung.zip</a>
+      <span class="dl-meta sans">v3.0.6 · .zip · ekstrak dulu sebelum instal</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="part">
+    <p class="section-label sans">A</p>
+    <h2>Instal Extension</h2>
+    <ol class="steps">
+      <li><div class="step-body"><p>Download filenya lewat tombol di atas, lalu extract <strong>Auto_Chek_Manurung.zip</strong>.</p></div></li>
+      <li><div class="step-body"><p>Buka Chrome, ketik di address bar: <code class="path">chrome://extensions</code></p></div></li>
+      <li><div class="step-body"><p>Nyalakan toggle <strong>Developer mode</strong> (pojok kanan atas).</p></div></li>
+      <li><div class="step-body"><p>Klik tombol <strong>Load unpacked</strong>.</p></div></li>
+      <li><div class="step-body"><p>Pilih folder <strong>"Auto Chek Manurung"</strong> (hasil extract tadi).</p></div></li>
+      <li><div class="step-body"><p>Icon mahkota akan muncul di toolbar Chrome — pin biar gampang diakses.</p></div></li>
+    </ol>
+  </div>
+
+  <div class="part">
+    <p class="section-label sans">B</p>
+    <h2>Cara Pakai Dashboard</h2>
+    <ol class="steps">
+      <li><div class="step-body">
+        <p>Buka &amp; login dulu ke halaman <em>bukan link agen</em> <strong>https://Agent.idrbo1.com/</strong>, tunggu sampai status di dashboard berubah jadi hijau "Admin terdeteksi". Catatan: harus membuka tampilan <code class="path">/transaction-record.html</code>.</p>
+        <a class="attach sans" href="https://sleekshot.app/v/aDu2RfGrXEIz" target="_blank" rel="noopener">Lihat lampiran →</a>
+      </div></li>
+      <li><div class="step-body">
+        <p>Klik icon mahkota di toolbar untuk buka dashboard.</p>
+        <a class="attach sans" href="https://sleekshot.app/v/ykmUCZZkN11R" target="_blank" rel="noopener">Lihat lampiran →</a>
+      </div></li>
+      <li><div class="step-body"><p>Klik <strong>Import XLSX</strong>, pilih file yang isinya kolom <strong>USER ID, KODE TIKET, BETTING, KOIN</strong>.</p></div></li>
+      <li><div class="step-body"><p>Isi <strong>Tanggal</strong> (default kemarin) dan jumlah <strong>Cek ... data</strong> per batch.</p></div></li>
+      <li><div class="step-body"><p>Klik <strong>▶ Mulai Cek</strong> — sistem otomatis mencocokkan data XLSX dengan data asli.</p></div></li>
+      <li><div class="step-body"><p>Baca hasil dari warna status di tabel:</p>
+        <div class="legend">
+          <div class="chip k"><strong><span class="dot"></span>Kuning</strong><span class="note">Masih diproses (Menunggu / Mengecek)</span></div>
+          <div class="chip h"><strong><span class="dot"></span>Hijau</strong><span class="note">Sesuai</span></div>
+          <div class="chip m"><strong><span class="dot"></span>Merah</strong><span class="note">Tidak sesuai / tidak ditemukan</span></div>
+        </div>
+      </div></li>
+    </ol>
+    <div class="redo-note">
+      Kalau ada baris yang merah, klik <strong>↻ Cek Ulang</strong> di kolom Aksi untuk memproses ulang baris itu saja — tidak perlu ulang dari awal.
+    </div>
+  </div>
+
+  <div class="part">
+    <p class="section-label sans">Isi Folder</p>
+    <h2>Apa saja yang ada di dalam zip</h2>
+    <p>Setelah di-extract, folder <strong>"Auto Chek Manurung"</strong> berisi beberapa file — ini normal untuk ekstensi Chrome, bukan cuma satu file dashboard:</p>
+    <div class="files sans">
+      <div class="row"><span class="f">manifest.json</span><span class="d">Deklarasi ekstensi &amp; izin akses</span></div>
+      <div class="row"><span class="f">background.js</span><span class="d">Logika utama proses pengecekan</span></div>
+      <div class="row"><span class="f">content.js</span><span class="d">Berjalan di halaman transaction-record</span></div>
+      <div class="row"><span class="f">dashboard.html / .css / .js</span><span class="d">Tampilan &amp; fungsi dashboard saat icon diklik</span></div>
+      <div class="row"><span class="f">xlsx-reader.js</span><span class="d">Membaca isi file XLSX yang diimpor</span></div>
+      <div class="row"><span class="f">config.js</span><span class="d">Konstanta penyimpanan data lokal</span></div>
+      <div class="row"><span class="f">icons/</span><span class="d">Icon mahkota untuk toolbar</span></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="foot-inner sans">
+    <img src="logo.png" alt="" />
+    <span>panduan penggunaan internal</span>
+  </div>
+</footer>
+
+</body>
+</html>
